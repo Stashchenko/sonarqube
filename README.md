@@ -1,6 +1,7 @@
 # Introduction 
 Deploy SonarQube with postress to Google Cloud Console
 Some customization has to be done on the SonarQube base image.
+[Final image](https://hub.docker.com/r/vstashchenko/sonar/)
 
 # Getting Started
 ##### 1. Make sure your kubernetes cluster is up and running
