@@ -21,9 +21,9 @@ gke-my-testnode-default-pool-4321s   Ready     <none>    20d       v1.9.7-gke.5
 kubectl apply -f k8s/sonar-pv-postgres.yaml
 kubectl apply -f k8s/sonar-pvc-postgres.yaml
 kubectl apply -f k8s/sonar-postgres-deployment.yaml
+kubectl apply -f k8s/sonar-postgres-service.yaml
 kubectl apply -f k8s/sonarqube-deployment.yaml
 kubectl apply -f k8s/sonarqube-service.yaml
-kubectl apply -f k8s/sonar-postgres-service.yaml
 ```
 This will create pods in the cluster.
 
