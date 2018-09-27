@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: sonarqube
+  name: sonarqube
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 9000
+      name: sonarport
+  selector:
+    name: sonarqube
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: "sonarqube-ingress"
+spec:
+  backend:
+    serviceName: sonarqube
+    servicePort: 8080
