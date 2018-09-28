@@ -44,6 +44,7 @@ VOLUME "$SONARQUBE_HOME/data"
 
 WORKDIR $SONARQUBE_HOME
 COPY run.sh $SONARQUBE_HOME/bin/
+COPY sonar.properties $SONARQUBE_HOME/conf/
 ENTRYPOINT ["./bin/run.sh"]
 
 
@@ -54,8 +55,12 @@ RUN rm -rf ${SONARQUBE_HOME}/extensions/plugins/sonar-typescript-plugin-1.7.0.28
 #Install Google Authentication plugin
 RUN wget --directory-prefix=${SONARQUBE_HOME}/extensions/plugins/ \
      'https://github.com/InfoSec812/sonar-auth-google/releases/download/1.6.1/sonar-auth-googleoauth-plugin-1.6.1.jar'
+#Install CSS plugin
 RUN wget --directory-prefix=${SONARQUBE_HOME}/extensions/plugins/ \
      'https://github.com/racodond/sonar-css-plugin/releases/download/4.18/sonar-css-plugin-4.18.jar'
 #Install SonarTS plugin
 RUN wget --directory-prefix=${SONARQUBE_HOME}/extensions/plugins/ \
      'https://github.com/SonarSource/SonarTS/releases/download/1.8.0.3332/sonar-typescript-plugin-1.8.0.3332.jar'
+#Install Ruby plugin
+RUN wget --directory-prefix=${SONARQUBE_HOME}/extensions/plugins/ \
+     'https://github.com/fortitudetec/sonar-ruby-plugin/releases/download/v1.1.0/sonar-ruby-plugin-1.1.0.jar'
